@@ -12,7 +12,7 @@ from lnmp.serializers import LNMPSerializer
 class LNMPApiView(CreateAPIView):
     queryset = LNMP.objects.all()
     serializer_class = LNMPSerializer
-    permission_classes = (AllowAny)
+    permission_classes = [AllowAny]
 
     def create(self, request):
         print(request.data, "This is the request.data")
