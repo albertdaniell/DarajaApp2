@@ -83,17 +83,32 @@ WSGI_APPLICATION = 'api2.wsgi.application'
 #     }
 # }
 
+# Local production
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'api-tut',
+#         'USER': 'postgres',
+#         'PASSWORD': 'dan@1995',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
+# For production
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'api-tut',
-        'USER': 'postgres',
+        'NAME': 'myproject',
+        'USER': 'albert',
         'PASSWORD': 'dan@1995',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '',
     }
 }
+
 
 
 # Password validation
