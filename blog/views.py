@@ -20,7 +20,7 @@ def blog_list(request):
         data = JSONParser().parse(request)
         serializer=BlogSerializer(data=data)
         if serializer.is_valid():
-            # serializer.save()
+            serializer.save()
             print(data)
             return JsonResponse(serializer.data, status=201)
         return JsonResponse (serializer.errors, status=400)
