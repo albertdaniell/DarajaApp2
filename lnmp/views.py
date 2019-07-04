@@ -15,4 +15,5 @@ class LNMPApiView(CreateAPIView):
     permission_classes = [AllowAny]
 
     def create(self, request):
+        print("This is the data received...")
         print(request.data, "This is the request.data")
