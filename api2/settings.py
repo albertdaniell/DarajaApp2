@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'blog',
     'mpesa',
-    'lnmp'
+    'lnmp',
+    'testapp'
     
 ]
 

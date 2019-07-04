@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from lnmp.models import LNMP
+from lnmp.models import LipaNaMpesa
 class LNMPSerializer(serializers.ModelSerializer):
     class Meta:
-        model = LNMP
+        model = LipaNaMpesa
         fields = '__all__'
