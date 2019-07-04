@@ -3,4 +3,4 @@ from lnmp.models import LNMP
 class LNMPSerializer(serializers.ModelSerializer):
     class Meta:
         model = LNMP
-        fields = ("id")
+        fields = "id"
