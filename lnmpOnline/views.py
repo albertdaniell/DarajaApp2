@@ -119,7 +119,7 @@ class LNMPList(CreateAPIView):
             checkoutRequestID=CheckoutRequestID,
             merchantRequestID=MerchantRequestID,
             resultCode=ResultCode,
-            resultDescription=ResultDescription,
+            resultDesc=ResultDescription,
             transactionDate=TransactionDate,
             phoneNumber=PhoneNumber,
             amount=Amount
