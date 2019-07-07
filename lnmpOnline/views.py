@@ -42,13 +42,14 @@ from rest_framework.permissions import AllowAny
 
 class LNMPList(CreateAPIView):
     permission_classes = [AllowAny]
+    queryset=LnmpOnline.object.all()
     serializer_class = LnmpOnlineSerializer
     """
     List all lnmp or create another lnmp
     """
-    def create(self, request, format=None):
+    def create(self, request):
         trans = LnmpOnline.objects.all()
-        serializer_class = LnmpOnlineSerializer(trans, many=True)
+        # serializer_class = LnmpOnlineSerializer(trans, many=True)
         # return Response(serializer_class.data)
         print("************************************************************************************************************************************************************************")
 
