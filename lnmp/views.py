@@ -83,47 +83,47 @@ class LNMPApiView(CreateAPIView):
         data=request.data
         print(data)
 
-        testcode=(data['Body']['stkCallback']['ResultCode'])
-        MerchantRequestID=(data['Body']['stkCallback']['MerchantRequestID'])
-        CheckoutRequestID=(data['Body']['stkCallback']['CheckoutRequestID'])
-        ResultCode = (data['Body']['stkCallback']['ResultCode'])
-        ResultDescription = (data['Body']['stkCallback']['ResultDesc'])
-        Amount=(data['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'])
-        mpesa_receipt_number=(data['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value'])
-        MpesaReceiptNumber=''
-        TransactionDate=(data['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value'])
-        # convert date
-        TransactionDate=str(TransactionDate)
-        TransactionDate=datetime.strptime(TransactionDate,("%Y%m%d%H%M%S"))
+        # testcode=(data['Body']['stkCallback']['ResultCode'])
+        # MerchantRequestID=(data['Body']['stkCallback']['MerchantRequestID'])
+        # CheckoutRequestID=(data['Body']['stkCallback']['CheckoutRequestID'])
+        # ResultCode = (data['Body']['stkCallback']['ResultCode'])
+        # ResultDescription = (data['Body']['stkCallback']['ResultDesc'])
+        # Amount=(data['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'])
+        # mpesa_receipt_number=(data['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value'])
+        # MpesaReceiptNumber=''
+        # TransactionDate=(data['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value'])
+        # # convert date
+        # TransactionDate=str(TransactionDate)
+        # TransactionDate=datetime.strptime(TransactionDate,("%Y%m%d%H%M%S"))
 
-        PhoneNumber=(data['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'])
+        # PhoneNumber=(data['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'])
 
-        print("God is great...")
+        # print("God is great...")
 
-        mpesa_data_callbk={
-            "testcode":testcode,
-            "MerchantRequestID":MerchantRequestID,
-            "CheckoutRequestID":CheckoutRequestID,
-            "ResultCode":ResultCode,
-            "Amount":Amount,
-            "mpesa_receipt_number":mpesa_receipt_number,
-            "TransactionData":TransactionDate,
-            "PhoneNumber":PhoneNumber
-        }
+        # mpesa_data_callbk={
+        #     "testcode":testcode,
+        #     "MerchantRequestID":MerchantRequestID,
+        #     "CheckoutRequestID":CheckoutRequestID,
+        #     "ResultCode":ResultCode,
+        #     "Amount":Amount,
+        #     "mpesa_receipt_number":mpesa_receipt_number,
+        #     "TransactionData":TransactionDate,
+        #     "PhoneNumber":PhoneNumber
+        # }
 
-        print(TransactionDate)
+        # print(TransactionDate)
 
-        from lnmp.models import LipaNaMpesa
-        model=LipaNaMpesa.objects.create(
-            checkoutRequestID=CheckoutRequestID,
-            merchantRequestID=MerchantRequestID,
-            resultCode=ResultCode,
-            resultDescription=ResultDescription,
-            transactionDate=TransactionDate,
-            phoneNumber=PhoneNumber,
-            amount=Amount
+        # from lnmp.models import LipaNaMpesa
+        # model=LipaNaMpesa.objects.create(
+        #     checkoutRequestID=CheckoutRequestID,
+        #     merchantRequestID=MerchantRequestID,
+        #     resultCode=ResultCode,
+        #     resultDescription=ResultDescription,
+        #     transactionDate=TransactionDate,
+        #     phoneNumber=PhoneNumber,
+        #     amount=Amount
 
-        )
-        model.save()
+        # )
+        # model.save()
         print("Data has been saved")
 
