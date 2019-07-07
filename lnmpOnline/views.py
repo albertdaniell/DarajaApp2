@@ -34,25 +34,28 @@ from lnmpOnline.models import LnmpOnline
 from lnmpOnline.serializers import LnmpOnlineSerializer
 from django.http import Http404
 from rest_framework.views import APIView
+from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import AllowAny
 
 
-class LNMPList(APIView):
+class LNMPList(CreateAPIView):
     permission_classes = [AllowAny]
+    serializer = LnmpOnlineSerializer
     """
     List all lnmp or create another lnmp
     """
-    def get(self, request, format=None):
+    def create(self, request, format=None):
         trans = LnmpOnline.objects.all()
         serializer = LnmpOnlineSerializer(trans, many=True)
         return Response(serializer.data)
+        print(request.data)
 
-    def post(self, request, format=None):
-        serializer = LnmpOnlineSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            print(request.data)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    # def post(self, request, format=None):
+    #     serializer = LnmpOnlineSerializer(data=request.data)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         print(request.data)
+    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
