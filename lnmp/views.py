@@ -91,7 +91,7 @@ class LNMPApiView(CreateAPIView):
         # Amount=(data['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'])
         # mpesa_receipt_number=(data['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value'])
         # MpesaReceiptNumber=''
-        # TransactionDate=(data['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value'])
+        TransactionDate=(data['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value'])
         # # convert date
         # TransactionDate=str(TransactionDate)
         # TransactionDate=datetime.strptime(TransactionDate,("%Y%m%d%H%M%S"))
@@ -111,7 +111,7 @@ class LNMPApiView(CreateAPIView):
         #     "PhoneNumber":PhoneNumber
         # }
 
-        # print(TransactionDate)
+        print(TransactionDate)
 
         # from lnmp.models import LipaNaMpesa
         # model=LipaNaMpesa.objects.create(
