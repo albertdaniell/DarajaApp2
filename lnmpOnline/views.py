@@ -13,6 +13,7 @@ def lipanampesaonline(request):
     """
     List all trans
     """
+    print(request.data)
     if request.method == 'GET':
         trans = LnmpOnline.objects.all()
         serializer = LnmpOnlineSerializer(trans, many=True)
