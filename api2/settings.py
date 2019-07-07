@@ -104,7 +104,7 @@ WSGI_APPLICATION = 'api2.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'api-tut',
+#         'NAME': 'api_tut',
 #         'USER': 'postgres',
 #         'PASSWORD': 'dan@1995',
 #         'HOST': 'localhost',
