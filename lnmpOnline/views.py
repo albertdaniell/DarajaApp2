@@ -113,11 +113,26 @@ class LNMPList(CreateAPIView):
         }
 
         print(TransactionDate)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-            print("Has been saved to db")
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        from lnmpOnline.models import LnmpOnline
+        model=LnmpOnline.objects.create(
+            checkoutRequestID=CheckoutRequestID,
+            merchantRequestID=MerchantRequestID,
+            resultCode=ResultCode,
+            resultDescription=ResultDescription,
+            transactionDate=TransactionDate,
+            phoneNumber=PhoneNumber,
+            amount=Amount
+
+        )
+        model.save()
+        print("Data has been saved")
+
+        # if serializer.is_valid():
+        #     serializer.save()
+        #     return Response(serializer.data, status=status.HTTP_201_CREATED)
+        #     print("Has been saved to db")
+        # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     # def post(self, request, format=None):
     #     serializer = LnmpOnlineSerializer(data=request.data)
