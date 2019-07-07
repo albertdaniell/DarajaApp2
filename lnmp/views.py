@@ -3,7 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from rest_framework.generics import CreateAPIView
-# from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny
 from lnmp.models import LipaNaMpesa
 from lnmp.serializers import LNMPSerializer
 from datetime import datetime
@@ -120,7 +120,7 @@ class LNMPApiView(CreateAPIView):
             phoneNumber=PhoneNumber,
             amount=Amount
 
-
         )
         model.save()
+        print("Data has been saved")
 
