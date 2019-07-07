@@ -8,8 +8,7 @@ from lnmp.models import LipaNaMpesa
 from lnmp.serializers import LNMPSerializer
 from datetime import datetime
 
-# updated
-
+# update
 # BEGINING OF SAMPLE
 
 # @csrf_exempt
