@@ -50,7 +50,7 @@ class LNMPList(CreateAPIView):
     List all lnmp or create another lnmp
     """
     def create(self, request):
-        trans = LnmpOnline.objects.all()
+        # trans = LnmpOnline.objects.all()
         # serializer_class = LnmpOnlineSerializer(trans, many=True)
         # return Response(serializer_class.data)
         print("************************************************************************************************************************************************************************")
