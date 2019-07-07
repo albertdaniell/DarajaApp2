@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
     path('', include('mpesa.urls')),
-     path('', include('lnmp.urls')),
+    path('', include('lnmp.urls')),
+    path('', include('lnmpOnline.urls')),
 ]
