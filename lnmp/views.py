@@ -78,7 +78,9 @@ class LNMPApiView(CreateAPIView):
     def create(self, request):
         print("This is the data received...")
         print(request.data, "This is the request.data")
+        print("God is great...")
         data=request.data
+        print("God is great...")
 
         testcode=(data['Body']['stkCallback']['ResultCode'])
         MerchantRequestID=(data['Body']['stkCallback']['MerchantRequestID'])
