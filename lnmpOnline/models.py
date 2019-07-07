@@ -10,3 +10,6 @@ class LnmpOnline(models.Model):
     mpesaReceiptNumber=models.CharField(max_length=50)
     transactionDate=models.DateTimeField()
     phoneNumber= models.CharField(max_length=15)
+
+    def __str__(self):
+        return f"{self.phoneNumber} has sent {self.amount} >> {self.mpesaReceiptNumber}"
