@@ -53,6 +53,6 @@ class LNMPList(APIView):
         serializer = LnmpOnlineSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            print(data)
+            print(request.data)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
