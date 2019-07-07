@@ -49,7 +49,7 @@ class LNMPList(CreateAPIView):
     def create(self, request, format=None):
         trans = LnmpOnline.objects.all()
         serializer_class = LnmpOnlineSerializer(trans, many=True)
-        return Response(serializer.data)
+        return Response(serializer_class.data)
         print("************************************************************************************************************************************************************************")
 
         print(request.data)
