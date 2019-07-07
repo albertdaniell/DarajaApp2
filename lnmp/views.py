@@ -81,49 +81,63 @@ class LNMPApiView(CreateAPIView):
         print(request.data, "This is the request.data")
         
         data=request.data
-        print(data)
+        # print(data)
 
-        # testcode=(data['Body']['stkCallback']['ResultCode'])
-        # MerchantRequestID=(data['Body']['stkCallback']['MerchantRequestID'])
-        # CheckoutRequestID=(data['Body']['stkCallback']['CheckoutRequestID'])
-        # ResultCode = (data['Body']['stkCallback']['ResultCode'])
-        # ResultDescription = (data['Body']['stkCallback']['ResultDesc'])
-        # Amount=(data['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'])
-        # mpesa_receipt_number=(data['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value'])
-        # MpesaReceiptNumber=''
+        testcode=(data['Body']['stkCallback']['ResultCode'])
+        MerchantRequestID=(data['Body']['stkCallback']['MerchantRequestID'])
+        CheckoutRequestID=(data['Body']['stkCallback']['CheckoutRequestID'])
+        ResultCode = (data['Body']['stkCallback']['ResultCode'])
+        if ResultCode == 1032:
+            print("This mpesa Transaction was cancelled by user")
+        ResultDescription = (data['Body']['stkCallback']['ResultDesc'])
+        Amount=(data['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'])
+        mpesa_receipt_number=(data['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value'])
+        MpesaReceiptNumber=''
         TransactionDate=(data['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value'])
-        # # convert date
-        # TransactionDate=str(TransactionDate)
-        # TransactionDate=datetime.strptime(TransactionDate,("%Y%m%d%H%M%S"))
+        # convert date
+        TransactionDate=str(TransactionDate)
+        TransactionDate=datetime.strptime(TransactionDate,("%Y%m%d%H%M%S"))
 
-        # PhoneNumber=(data['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'])
+        PhoneNumber=(data['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'])
 
-        # print("God is great...")
+        print("God is great...")
 
-        # mpesa_data_callbk={
-        #     "testcode":testcode,
-        #     "MerchantRequestID":MerchantRequestID,
-        #     "CheckoutRequestID":CheckoutRequestID,
-        #     "ResultCode":ResultCode,
-        #     "Amount":Amount,
-        #     "mpesa_receipt_number":mpesa_receipt_number,
-        #     "TransactionData":TransactionDate,
-        #     "PhoneNumber":PhoneNumber
-        # }
+        
+
+        mpesa_data_callbk={
+            "testcode":testcode,
+            "MerchantRequestID":MerchantRequestID,
+            "CheckoutRequestID":CheckoutRequestID,
+            "ResultCode":ResultCode,
+            "Amount":Amount,
+            "mpesa_receipt_number":mpesa_receipt_number,
+            "TransactionData":TransactionDate,
+            "PhoneNumber":PhoneNumber
+        }
 
         print(TransactionDate)
 
-        # from lnmp.models import LipaNaMpesa
-        # model=LipaNaMpesa.objects.create(
-        #     checkoutRequestID=CheckoutRequestID,
-        #     merchantRequestID=MerchantRequestID,
-        #     resultCode=ResultCode,
-        #     resultDescription=ResultDescription,
-        #     transactionDate=TransactionDate,
-        #     phoneNumber=PhoneNumber,
-        #     amount=Amount
+        from lnmp.models import LipaNaMpesa
+        model=LipaNaMpesa.objects.create(
+            checkoutRequestID=CheckoutRequestID,
+            merchantRequestID=MerchantRequestID,
+            resultCode=ResultCode,
+            resultDescription=ResultDescription,
+            transactionDate=TransactionDate,
+            phoneNumber=PhoneNumber,
+            amount=Amount
 
-        # )
-        # model.save()
+        )
+        model.save()
         print("Data has been saved")
 
+
+
+# """
+
+
+# {'Body': {'stkCallback': {'MerchantRequestID': '22498-6967453-1', 'CheckoutRequestID': 'ws_CO_DMZ_536008299_07072019073859321', 'ResultCode': 0, 'ResultDesc': 'The service request is processed successfully.', 'CallbackMetadata': {'Item': [{'Name': 'Amount', 'Value': 1.0}, {'Name': 'MpesaReceiptNumber', 'Value': 'NG723YFHWQ'}, {'Name': 'Balance'}, {'Name': 'TransactionDate', 'Value': 20190707073917}, {'Name': 'PhoneNumber', 'Value': 254791836987}]}}}}
+
+
+
+# """
