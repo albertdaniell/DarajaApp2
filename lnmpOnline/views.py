@@ -15,7 +15,6 @@ def lipanampesaonline(request):
     """
     if request.method == 'GET':
         trans = LnmpOnline.objects.all()
-        print(request.data)
         serializer = LnmpOnlineSerializer(trans, many=True)
         return JsonResponse(serializer.data, safe=False)
 
@@ -25,6 +24,6 @@ def lipanampesaonline(request):
         if serializer.is_valid():
             # print(data)
             serializer.save()
-            print(request.data)
+            print(data)
             return JsonResponse(serializer.data, status=201)
         return JsonResponse(serializer.errors, status=400)
