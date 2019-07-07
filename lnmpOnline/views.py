@@ -24,6 +24,6 @@ def lipanampesaonline(request):
         if serializer.is_valid():
             # print(data)
             serializer.save()
-            print(data)
+            print(request.data)
             return JsonResponse(serializer.data, status=201)
         return JsonResponse(serializer.errors, status=400)
