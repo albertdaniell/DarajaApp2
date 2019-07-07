@@ -95,7 +95,7 @@ class LNMPApiView(CreateAPIView):
 
         PhoneNumber=(data['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'])
 
-        # print(TransactionDate)
+        print("God is great...")
 
         mpesa_data_callbk={
             "testcode":testcode,
