@@ -22,7 +22,6 @@ def lipanampesaonline(request):
     elif request.method == 'POST':
         data = JSONParser().parse(request)
         serializer = LnmpOnlineSerializer(data=data)
-        return (request.data)
         if serializer.is_valid():
             # print(data)
             serializer.save()
