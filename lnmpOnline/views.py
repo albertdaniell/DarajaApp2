@@ -55,6 +55,7 @@ class LNMPList(CreateAPIView):
 
         print(request.data)
         serializer = LnmpOnlineSerializer(data=request.data)
+        data=request.data
         testcode=(data['Body']['stkCallback']['ResultCode'])
         print(testcode," This is the testcode")
 
