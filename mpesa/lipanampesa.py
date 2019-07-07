@@ -29,16 +29,16 @@ decoded_pass=encoded_string.decode('utf8')
     #print (r.json())
 
 
-def lipa_na_mpesa(phone_no):
+def lipa_na_mpesa(phone_no,amount,payBill):
     access_token = access_tk.myaccess_token
     api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
     headers = { "Authorization": "Bearer %s" % access_token }
     request = {
-    "BusinessShortCode": keys.businessShortCode,
+    "BusinessShortCode": payBill,
     "Password": decoded_pass,
     "Timestamp":formatted_time,
     "TransactionType": "CustomerPayBillOnline",
-    "Amount": "1",
+    "Amount": amount,
     "PartyA": phone_no,
     "PartyB":keys.partB,  
     "PhoneNumber": phone_no,  

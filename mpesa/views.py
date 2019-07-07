@@ -21,7 +21,10 @@ def mpesa_list(request):
         data = JSONParser().parse(request)
         serializer=MpesaSerializer(data=data)
         if serializer.is_valid():
-            lipa_na_mpesa("254791836987")
+            phone=data.phone_number
+            amount=data.amount
+            payBill=data.payBill
+            lipa_na_mpesa(phone,amount,payBill)
             serializer.save()
             print(data)
             return JsonResponse(serializer.data, status=201)
