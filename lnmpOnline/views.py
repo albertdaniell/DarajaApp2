@@ -57,7 +57,9 @@ class LNMPList(CreateAPIView):
         serializer = LnmpOnlineSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
             print("Has been saved to db")
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     # def post(self, request, format=None):
     #     serializer = LnmpOnlineSerializer(data=request.data)
