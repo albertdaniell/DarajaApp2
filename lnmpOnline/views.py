@@ -15,13 +15,13 @@ def lipanampesaonline(request):
     """
     if request.method == 'GET':
         trans = LnmpOnline.objects.all()
+        print(request.data)
         serializer = LnmpOnlineSerializer(trans, many=True)
         return JsonResponse(serializer.data, safe=False)
 
     elif request.method == 'POST':
         data = JSONParser().parse(request)
         serializer = LnmpOnlineSerializer(data=data)
-        return Response(data)
         return (request.data)
         if serializer.is_valid():
             # print(data)
