@@ -84,23 +84,45 @@ class LNMPApiView(CreateAPIView):
         # print(data)
 
         testcode=(data['Body']['stkCallback']['ResultCode'])
+        print(testcode," This is the testcode")
+
         MerchantRequestID=(data['Body']['stkCallback']['MerchantRequestID'])
+        print(MerchantRequestID, " This is the merchant request id")
+
         CheckoutRequestID=(data['Body']['stkCallback']['CheckoutRequestID'])
+        print(CheckoutRequestID, " This is the checkout requst id")
+
         ResultCode = (data['Body']['stkCallback']['ResultCode'])
+        print(ResultCode, " This is the result code")
+
         if ResultCode == 1032:
-            print("This mpesa Transaction was cancelled by user")
+            print(" This mpesa Transaction was cancelled by user")
+        elif ResultCode == 0:
+            print("Niceeee, This was a successful transaction")
+        elif ResultCode ==1:
+            print("Sorry, you have insufficent funds!!!")
+
         ResultDescription = (data['Body']['stkCallback']['ResultDesc'])
+        print(ResultDescription," This is the result desc")
+
         Amount=(data['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'])
+        print(Amount," This is the amount")
+
         mpesa_receipt_number=(data['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value'])
+        print(mpesa_receipt_number," This is the mpesa receipt")
+
+
         MpesaReceiptNumber=''
         TransactionDate=(data['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value'])
+        
         # convert date
         TransactionDate=str(TransactionDate)
         TransactionDate=datetime.strptime(TransactionDate,("%Y%m%d%H%M%S"))
 
         PhoneNumber=(data['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'])
+        print(PhoneNumber, "This is the phone number")
 
-        print("God is great...")
+        
 
         
 
