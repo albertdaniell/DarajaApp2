@@ -87,8 +87,8 @@ class LNMPList(CreateAPIView):
         print(mpesa_receipt_number," This is the mpesa receipt")
 
 
-        # MpesaReceiptNumber=''
-        # TransactionDate=(data['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value'])
+        MpesaReceiptNumber=''
+        TransactionDate=(data['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value'])
         
         # convert date
         TransactionDate=str(TransactionDate)
@@ -101,16 +101,16 @@ class LNMPList(CreateAPIView):
 
         
 
-        mpesa_data_callbk={
-            "testcode":testcode,
-            "MerchantRequestID":MerchantRequestID,
-            "CheckoutRequestID":CheckoutRequestID,
-            "ResultCode":ResultCode,
-            "Amount":Amount,
-            "mpesa_receipt_number":mpesa_receipt_number,
-            "TransactionData":TransactionDate,
-            "PhoneNumber":PhoneNumber
-        }
+        # mpesa_data_callbk={
+        #     "testcode":testcode,
+        #     "MerchantRequestID":MerchantRequestID,
+        #     "CheckoutRequestID":CheckoutRequestID,
+        #     "ResultCode":ResultCode,
+        #     "Amount":Amount,
+        #     "mpesa_receipt_number":mpesa_receipt_number,
+        #     "TransactionData":TransactionDate,
+        #     "PhoneNumber":PhoneNumber
+        # }
 
         print(TransactionDate)
 
@@ -120,8 +120,8 @@ class LNMPList(CreateAPIView):
             merchantRequestID=MerchantRequestID,
             resultCode=ResultCode,
             resultDesc=ResultDescription,
-            mpesaReceiptNumber=mpesa_receipt_number,
             transactionDate=TransactionDate,
+            mpesaReceiptNumber=mpesa_receipt_number,        
             phoneNumber=PhoneNumber,
             amount=Amount
 
