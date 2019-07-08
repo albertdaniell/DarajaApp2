@@ -27,6 +27,7 @@ def mpesa_list(request):
             lipa_na_mpesa(phone,amount,payBill)
             serializer.save()
             print(data)
+            print(request)
             return JsonResponse(serializer.data, status=201)
         return JsonResponse (serializer.errors, status=400)
 
