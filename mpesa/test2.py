@@ -1,8 +1,13 @@
-data={
-    "name":"Alby",
-    "age":23
-}
+# data={
+#     "name":"Alby",
+#     "age":23
+# }
 
 
-print (data['age'])
- 
+# print (data['age'])
+
+def foo():
+    print("Hellow world")
+    return 1
+
+print (foo())

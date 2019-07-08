@@ -24,9 +24,11 @@ def mpesa_list(request):
             phone=data['phone_number']
             amount=data['amount']
             payBill=data['payBill']
+            # here we run the function
             lipa_na_mpesa(phone,amount,payBill)
+            # end of function
             serializer.save()
-            print(data)
+            print("The data is :",data)
             print(request)
             return JsonResponse(serializer.data, status=201)
         return JsonResponse (serializer.errors, status=400)
