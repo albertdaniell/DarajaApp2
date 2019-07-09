@@ -25,8 +25,8 @@ myaccess_token=json_res['access_token']
 print (myaccess_token)
 access_token = myaccess_token
 api_url = "https://sandbox.safaricom.co.ke/mpesa/c2b/v1/simulate"
-headers = {"Authorization": "Bearer %s" % access_token}
-request = { "ShortCode":"888880",
+headers = {"Authorization": "Bearer %s" % myaccess_token}
+request = { "ShortCode":keys.shortcode1,
   "CommandID":"CustomerPayBillOnline",
   "Amount":"1",
   "Msisdn":"254791836987",
