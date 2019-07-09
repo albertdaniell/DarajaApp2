@@ -10,6 +10,8 @@ import mpesa.access_tk as access_tk
 
 # get access token
 
+time.sleep(2)
+
 consumer_key = keys.ConsumerKey
 consumer_secret =keys.ConsumerSecret
 api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
@@ -65,7 +67,7 @@ def lipa_na_mpesa(phone_no='254791836987',amount='1',payBill='174379'):
     "TransactionDesc": "fee payment"
     }
 
-    time.sleep(1)
+    
 
     response = requests.post(api_url, json = request, headers=headers)
 
