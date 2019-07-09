@@ -10,15 +10,20 @@ import mpesa.access_tk as access_tk
 
 # get access token
 
+
+
 time.sleep(2)
 
-consumer_key = keys.ConsumerKey
-consumer_secret =keys.ConsumerSecret
-api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
+def generateToken():
+    consumer_key = keys.ConsumerKey
+    consumer_secret =keys.ConsumerSecret
+    api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
 
-r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
-json_res=r.json()
-myaccess_token=json_res['access_token']
+    r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
+    json_res=r.json()
+    myaccess_token=json_res['access_token']
+
+
 
 
 # End get of access token
@@ -34,6 +39,9 @@ formatted_time=unformated_time.strftime("%Y%m%d%H%M%S")
 #generating a time stamp
 
 #base 64
+
+
+
 data_to_encode=keys.businessShortCode + keys.lipa_na_mpesa_passkey + formatted_time
 encoded_string=base64.b64encode(data_to_encode.encode())
 
@@ -50,6 +58,14 @@ decoded_pass=encoded_string.decode('utf8')
 
 
 def lipa_na_mpesa(phone_no='254791836987',amount='1',payBill='174379'):
+    consumer_key = keys.ConsumerKey
+    consumer_secret =keys.ConsumerSecret
+    api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
+    r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
+    json_res=r.json()
+    myaccess_token=json_res['access_token']
+
+    
     access_token = myaccess_token
     api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
     headers = { "Authorization": "Bearer %s" % access_token }

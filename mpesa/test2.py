@@ -6,8 +6,16 @@
 
 # print (data['age'])
 
-def foo():
-    print("Hellow world")
-    return 1
+# def foo():
+#     print("Hellow world")
+#     return 1
 
-print (foo())
+# print (foo())
+a="aa"
+
+def add():
+    
+    print(a)
+
+
+add()
