@@ -12,7 +12,7 @@ import mpesa.access_tk as access_tk
 
 
 
-time.sleep(2)
+# time.sleep(2)
 
 def generateToken():
     consumer_key = keys.ConsumerKey
