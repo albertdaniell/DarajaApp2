@@ -25,11 +25,12 @@ def mpesa_list(request):
             amount=data['amount']
             payBill=data['payBill']
             # here we run the function
+            return JsonResponse(serializer.data, status=201)
             lipa_na_mpesa(phone,amount,payBill)
             # end of function
             serializer.save()
             print("The data is :",data)
             print(request)
-            return JsonResponse(serializer.data, status=201)
+            
         return JsonResponse (serializer.errors, status=400)
 
