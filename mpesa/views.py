@@ -21,6 +21,7 @@ def mpesa_list(request):
         data = JSONParser().parse(request)
         serializer=MpesaSerializer(data=data)
         if serializer.is_valid():
+            return JsonResponse(serializer.data, status=201)
             phone=data['phone_number']
             amount=data['amount']
             payBill=data['payBill']
@@ -30,6 +31,6 @@ def mpesa_list(request):
             serializer.save()
             print("The data is :",data)
             print(request)
-            return JsonResponse(serializer.data, status=201)
+            
         return JsonResponse (serializer.errors, status=400)
 
