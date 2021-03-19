@@ -13,7 +13,7 @@ defusedxml==0.5.0
 dj-database-url==0.5.0
 Django==2.2.2
 django-filter==2.1.0
-djangorestframework==3.9.4
+djangorestframework==3.11.2
 entrypoints==0.3
 functools32==3.2.3.post2
 gunicorn==19.9.0
